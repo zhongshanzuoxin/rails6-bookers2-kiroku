@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
   end
   resources :users, only: [:index,:show,:edit,:update] do
+    get "search" => "users#search"
     member do
       get :follows, :followers
     end
